@@ -26,19 +26,5 @@
 
 ---
 
-## Installation
 
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/potnurukeerthi/Citizen-Shield--Web-based.git
-2.Navigate to the Project Folder:
 
-cd Citizen-Shield--Web-based
-
-3.Install Dependencies:
-
-pip install -r requirements.txt
-
-4.Run the Application:
-
-python app.py
