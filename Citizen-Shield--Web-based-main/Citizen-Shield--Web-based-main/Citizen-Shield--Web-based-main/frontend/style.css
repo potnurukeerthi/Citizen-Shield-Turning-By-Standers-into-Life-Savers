@@ -1,0 +1,274 @@
+/* ---------------------------------------------------- */
+/* --- 1. GENERAL & MOBILE-FIRST STYLES (Default) --- */
+/* ---------------------------------------------------- */
+
+/* General body and font */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #00b4db, #0083b0);
+    margin: 0;
+    /* Remove height: 100vh so content can scroll if needed on long pages */
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column; /* Allows content stacking */
+    justify-content: flex-start; /* Start content at the top */
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container style for cards (LOGIN/REGISTER VIEW) */
+.container {
+    background-color: #ffffffdd;
+    padding: 30px 20px; /* Reduced padding for mobile screens */
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 90%; /* CRITICAL: Use percentage for fluid width */
+    max-width: 450px; /* Maximum size for the form container */
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Headings */
+h1, h2, h3 {
+    margin-bottom: 20px;
+    color: #0083b0;
+}
+
+/* Paragraphs */
+p {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Input fields */
+input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+input:focus {
+    border-color: #00b4db;
+    box-shadow: 0 0 5px rgba(0,180,219,0.5);
+    outline: none;
+}
+
+/* Buttons */
+button {
+    width: 100%; /* CRITICAL: Full width buttons for easy mobile tapping */
+    padding: 12px 0;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #00b4db;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #0083b0;
+}
+
+/* Links */
+a {
+    color: #00b4db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* === Dashboard Styles (Reset + Base) === */
+/* These styles override the login-specific ones for the dashboard view */
+body.dashboard-view { 
+    background: #f4f6f9; /* Reset background for dashboard */
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.dashboard-view .container {
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    max-width: none;
+    width: 100%;
+    margin: 0;
+}
+
+
+/* === Header === */
+header {
+    background: #2c3e50;
+    color: #fff;
+    padding: 15px 15px; /* Adjust padding for mobile */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+header h1 {
+    font-size: 18px; /* Smaller font on mobile */
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+header .logout {
+    background: #e74c3c;
+    border: none;
+    padding: 6px 10px; /* Smaller button on mobile */
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+/* === Container (DASHBOARD) === */
+.dashboard-content { /* Renamed to avoid conflict with login .container */
+    width: 100%; /* CRITICAL: Full width on mobile */
+    margin: 10px auto;
+    padding: 0 10px; /* Mobile padding */
+    box-sizing: border-box;
+}
+.subtitle {
+    margin: 10px 0;
+    color: #444;
+}
+.section-title {
+    margin-top: 20px;
+}
+
+/* === SOS Button === */
+#sosBtn {
+    /* Let's center it nicely on mobile */
+    display: block; 
+    margin: 20px auto;
+    width: 90%; /* Nearly full width */
+    max-width: 300px;
+    background: #e74c3c;
+    color: #fff;
+    padding: 18px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+#sosBtn:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+/* === Map === */
+#map {
+    height: 350px; /* Shorter map height for mobile */
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* === Notification Popup === */
+#notification {
+    display: none;
+    position: fixed;
+    bottom: 10px; /* Closer to the bottom edge on mobile */
+    left: 10px; /* Align to the left/right edges for space */
+    right: 10px; 
+    background: #fff;
+    border: 2px solid #e74c3c;
+    padding: 15px; /* Reduced padding */
+    border-radius: 12px;
+    width: auto; /* Fluid width */
+    max-width: 100%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    animation: fadeIn 0.4s ease-in-out;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+#notification p {
+    margin: 0 0 10px;
+    font-size: 14px;
+}
+#acceptBtn, #declineBtn {
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+/* ----------------------------------------------------------------- */
+/* --- 2. MEDIA QUERY: DESKTOP/TABLET (Screens wider than 768px) --- */
+/* ----------------------------------------------------------------- */
+@media (min-width: 768px) {
+    
+    /* Revert Login/Register View to standard desktop look */
+    body {
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container {
+        padding: 50px 40px;
+        width: 350px; /* Restore fixed width on desktop for login/register */
+        margin: auto;
+    }
+
+    /* Revert Dashboard Header/Container to standard desktop look */
+    header {
+        padding: 15px 25px;
+    }
+    header h1 {
+        font-size: 20px;
+    }
+    header .logout {
+        padding: 8px 14px;
+    }
+    
+    .dashboard-content { /* Use the dedicated class for dashboard container */
+        max-width: 1100px; /* Restore max-width for desktop */
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    /* Restore SOS Button size/position */
+    #sosBtn {
+        display: inline-block;
+        width: auto;
+        padding: 16px 30px;
+        font-size: 22px;
+    }
+
+    /* Restore Map height */
+    #map {
+        height: 500px; 
+        margin-top: 25px;
+    }
+
+    /* Restore Notification Popup positioning for desktop */
+    #notification {
+        bottom: 25px;
+        right: 25px;
+        left: auto; /* Unset left alignment */
+        width: 300px; /* Fixed width on desktop */
+        padding: 20px;
+    }
+    #notification p {
+        font-size: 16px;
+    }
+}
+
+/* Keyframe for notification animation remains the same */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
